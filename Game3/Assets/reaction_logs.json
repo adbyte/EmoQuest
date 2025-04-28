@@ -1,0 +1,365 @@
+[
+    {
+        "type": "mole",
+        "spawn_time": 1744726160.520003,
+        "click_time": 1744726161.7372677,
+        "reaction_time": 1.2172646522521973,
+        "clicked": true,
+        "position": [
+            709,
+            330
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726161.01686,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            488,
+            634
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1744726161.9634662,
+        "click_time": 1744726163.0236855,
+        "reaction_time": 1.0602192878723145,
+        "clicked": true,
+        "position": [
+            217,
+            522
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726162.5202367,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            488,
+            634
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726164.0350595,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            156,
+            136
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1744726163.9167926,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            654,
+            136
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1744726165.277759,
+        "click_time": 1744726166.2962954,
+        "reaction_time": 1.0185363292694092,
+        "clicked": true,
+        "position": [
+            533,
+            683
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726165.546667,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            488,
+            468
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726167.0543551,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            654,
+            136
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1744726167.6543014,
+        "click_time": 1744726169.0205426,
+        "reaction_time": 1.366241216659546,
+        "clicked": true,
+        "position": [
+            214,
+            526
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726168.569169,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            654,
+            634
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1744726169.3298657,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            156,
+            634
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726170.072938,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            322,
+            468
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1744726170.7531135,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            654,
+            302
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726171.586851,
+        "click_time": 1744726172.5907495,
+        "reaction_time": 1.0038986206054688,
+        "clicked": true,
+        "position": [
+            372,
+            364
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1744726172.6028388,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            322,
+            136
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726173.100911,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            654,
+            136
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1744726174.2189057,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            488,
+            634
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726174.6127658,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            156,
+            136
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726176.1178534,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            654,
+            136
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726177.6203346,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            322,
+            468
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1744726178.5872822,
+        "click_time": 1744726179.6024032,
+        "reaction_time": 1.0151209831237793,
+        "clicked": true,
+        "position": [
+            541,
+            354
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726179.1318455,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            654,
+            302
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726180.6324444,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            488,
+            634
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1744726181.4592648,
+        "click_time": 1744726182.724635,
+        "reaction_time": 1.2653701305389404,
+        "clicked": true,
+        "position": [
+            209,
+            682
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726182.1380954,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            654,
+            302
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1744726183.5145,
+        "click_time": 1744726184.5971458,
+        "reaction_time": 1.0826458930969238,
+        "clicked": true,
+        "position": [
+            707,
+            500
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726183.6460311,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            322,
+            634
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726185.1541302,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            156,
+            468
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1744726186.0999603,
+        "click_time": 1744726186.9043574,
+        "reaction_time": 0.8043971061706543,
+        "clicked": true,
+        "position": [
+            202,
+            358
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726186.6668386,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            488,
+            468
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1744726188.119033,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            156,
+            136
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1744726188.1698337,
+        "click_time": 1744726188.919086,
+        "reaction_time": 0.7492523193359375,
+        "clicked": true,
+        "position": [
+            534,
+            538
+        ]
+    }
+]
