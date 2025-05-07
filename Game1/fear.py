@@ -11,94 +11,97 @@ class RealmOfFear:
         self.BLACK = (0, 0, 0)
         self.CYAN = (0, 255, 255)
 
-        # Load images and adjust sizes
-        self.player_img = pygame.image.load(r"Game1\Assets\spaceship.png").convert_alpha()
-        self.player_img = pygame.transform.scale(self.player_img, (80, 80))  # Fixed size for player
+        try:
+            self.player_img = pygame.image.load(r"Game1/Assets/spaceship.png").convert_alpha()
+            self.enemy_img = pygame.image.load(r"Game1/Assets/enemy.png").convert_alpha()
+            self.trap_img = pygame.image.load(r"Game1/Assets/bomb.png").convert_alpha()
+            self.background_img = pygame.image.load(r"Game1/Assets/bg2.jpg").convert()
+        except Exception as e:
+            print("Error loading game assets:", e)
+            sys.exit()
 
-        self.enemy_img = pygame.image.load(r"Game1\Assets\enemy.png").convert_alpha()
-        self.enemy_img = pygame.transform.scale(self.enemy_img, (180, 120))  # Fixed size for enemy
-
-        self.trap_img = pygame.image.load(r"Game1\Assets\bomb.png").convert_alpha()
-        self.trap_img = pygame.transform.scale(self.trap_img, (60, 80))  # Fixed size for traps
+        # Resize images
+        self.player_img = pygame.transform.scale(self.player_img, (80, 80))
+        self.enemy_img = pygame.transform.scale(self.enemy_img, (180, 120))
+        self.trap_img = pygame.transform.scale(self.trap_img, (60, 80))
+        self.background_img = pygame.transform.scale(self.background_img, (self.WIDTH, self.HEIGHT))
 
         self.power_up_imgs = {
-            'speed_boost': pygame.transform.scale(pygame.image.load(r"Game1\Assets\speed.png").convert_alpha(), (40, 40)),
-            'shield': pygame.transform.scale(pygame.image.load(r"Game1\Assets\shield.png").convert_alpha(), (40, 40)),
-            'trap_disabler': pygame.transform.scale(pygame.image.load(r"Game1\Assets\key.png").convert_alpha(), (40, 40)),
-            'enemy_freeze': pygame.transform.scale(pygame.image.load(r"Game1\Assets\freeze.png").convert_alpha(), (40, 40))
+            'speed_boost': pygame.transform.scale(pygame.image.load(r"Game1/Assets/speed.png").convert_alpha(), (40, 40)),
+            'shield': pygame.transform.scale(pygame.image.load(r"Game1/Assets/shield.png").convert_alpha(), (40, 40)),
+            'trap_disabler': pygame.transform.scale(pygame.image.load(r"Game1/Assets/key.png").convert_alpha(), (40, 40)),
+            'enemy_freeze': pygame.transform.scale(pygame.image.load(r"Game1/Assets/freeze.png").convert_alpha(), (40, 40))
         }
 
-        self.background_img = pygame.image.load(r"Game1\Assets\bg2.jpg").convert()
-        self.background_img = pygame.transform.scale(self.background_img, (self.WIDTH, self.HEIGHT))  # Scale background to screen size
-
-        # Load sounds
         pygame.mixer.init()
-        self.background_music = pygame.mixer.Sound(r"Game1\Sounds\bg_music.ogg")
-        self.power_up_sound = pygame.mixer.Sound(r"Game1\Sounds\powerup.wav")
-        self.trap_collision_sound = pygame.mixer.Sound(r"Game1\Sounds\trap_sound.wav")
-        self.game_over_sound = pygame.mixer.Sound(r"Game1\Sounds\gameover.wav")
+        self.background_music = pygame.mixer.Sound(r"Game1/Sounds/bg_music.ogg")
+        self.power_up_sound = pygame.mixer.Sound(r"Game1/Sounds/powerup.wav")
+        self.trap_collision_sound = pygame.mixer.Sound(r"Game1/Sounds/trap_sound.wav")
+        self.game_over_sound = pygame.mixer.Sound(r"Game1/Sounds/gameover.wav")
 
-        # Cube properties
         self.cube_size = 40
-        self.player_x = random.randint(0, self.WIDTH - self.cube_size)
-        self.player_y = random.randint(0, self.HEIGHT - self.cube_size)
-        self.enemy_x = random.randint(0, self.WIDTH - self.cube_size)
-        self.enemy_y = random.randint(0, self.HEIGHT - self.cube_size)
-        self.enemy_speed = 3
-
-        # Shadowy Traps properties
-        self.num_traps = 5
-        self.traps = []
-        for _ in range(self.num_traps):
-            self.traps.append([random.randint(0, self.WIDTH - self.cube_size), random.randint(0, self.HEIGHT - self.cube_size),
-                              random.choice([-2, 2]), random.choice([-2, 2])])  # Moving traps
-
-        # Power-Ups
-        self.power_ups = []  # List of power-ups
-        self.power_up_types = {
-            'speed_boost': 'speed_boost',
-            'shield': 'shield',
-            'trap_disabler': 'trap_disabler',
-            'enemy_freeze': 'enemy_freeze'
-        }
-        self.power_up_duration = 300  # Duration of power-ups in frames
-
-        # Game variables
-        self.game_over = False
-        self.paused = False
-        self.score = 0
+        self.reset_game()
         self.clock = pygame.time.Clock()
-
-        # Player power-up states
-        self.player_shield = False
-        self.player_speed_boost = False
-        self.trap_disabled = False
-        self.enemy_frozen = False
-        self.power_up_timer = 0
 
     def reset_game(self):
         self.player_x = random.randint(0, self.WIDTH - self.cube_size)
         self.player_y = random.randint(0, self.HEIGHT - self.cube_size)
         self.enemy_x = random.randint(0, self.WIDTH - self.cube_size)
         self.enemy_y = random.randint(0, self.HEIGHT - self.cube_size)
-        self.traps = []
-        for _ in range(self.num_traps):
-            self.traps.append([random.randint(0, self.WIDTH - self.cube_size), random.randint(0, self.HEIGHT - self.cube_size),
-                              random.choice([-2, 2]), random.choice([-2, 2])])
+        self.enemy_speed = 3
+
+        self.num_traps = 5
+        self.traps = [[random.randint(0, self.WIDTH - self.cube_size), random.randint(0, self.HEIGHT - self.cube_size),
+                       random.choice([-2, 2]), random.choice([-2, 2])] for _ in range(self.num_traps)]
+
         self.power_ups = []
+        self.power_up_types = ['speed_boost', 'shield', 'trap_disabler', 'enemy_freeze']
+        self.power_up_duration = 300
+
         self.game_over = False
+        self.paused = False
         self.score = 0
+
         self.player_shield = False
         self.player_speed_boost = False
         self.trap_disabled = False
         self.enemy_frozen = False
         self.power_up_timer = 0
 
+    def show_intro_image(self):
+        
+        try:
+            jumpscare_img = pygame.image.load(r"Game1/Assets/jumpscare.png").convert()
+            jumpscare_sound = pygame.mixer.Sound(r"Game1/Sounds/jumpscare.wav")
+        except Exception as e:
+            print("Error loading jumpscare assets:", e)
+            return
+
+        jumpscare_img = pygame.transform.scale(jumpscare_img, (self.WIDTH, self.HEIGHT))
+        jumpscare_sound.play()
+
+        fade_surface = pygame.Surface((self.WIDTH, self.HEIGHT))
+        fade_surface.fill((0, 0, 0))
+        for alpha in range(255, -1, -10):
+            self.screen.blit(jumpscare_img, (0, 0))
+            fade_surface.set_alpha(alpha)
+            self.screen.blit(fade_surface, (0, 0))
+            pygame.display.update()
+            pygame.time.delay(20)
+
+        pygame.time.delay(1000)
+        for alpha in range(0, 256, 10):
+            self.screen.blit(jumpscare_img, (0, 0))
+            fade_surface.set_alpha(alpha)
+            self.screen.blit(fade_surface, (0, 0))
+            pygame.display.update()
+            pygame.time.delay(20)
+
     def draw_player(self, x, y):
         self.screen.blit(self.player_img, (x, y))
         if self.player_shield:
-            shield_radius = max(self.player_img.get_width(), self.player_img.get_height()) // 2 + 15  # Increase radius
-            pygame.draw.circle(self.screen, self.CYAN, (x + self.player_img.get_width() // 2, y + self.player_img.get_height() // 2), shield_radius, 5)  # Thicker border
+            shield_radius = max(self.player_img.get_width(), self.player_img.get_height()) // 2 + 15
+            pygame.draw.circle(self.screen, self.CYAN, (x + 40, y + 40), shield_radius, 5)
 
     def draw_enemy(self, x, y):
         self.screen.blit(self.enemy_img, (x, y))
@@ -114,53 +117,47 @@ class RealmOfFear:
     def draw_power_up_timer(self):
         if self.power_up_timer > 0:
             bar_width = 100
-            bar_height = 10
             bar_x = self.player_x + self.cube_size // 2 - bar_width // 2
             bar_y = self.player_y - 20
-            pygame.draw.rect(self.screen, self.WHITE, (bar_x, bar_y, bar_width, bar_height), 2)
-            fill_width = (self.power_up_timer / self.power_up_duration) * bar_width
-            pygame.draw.rect(self.screen, self.CYAN, (bar_x, bar_y, fill_width, bar_height))
+            pygame.draw.rect(self.screen, self.WHITE, (bar_x, bar_y, bar_width, 10), 2)
+            fill = (self.power_up_timer / self.power_up_duration) * bar_width
+            pygame.draw.rect(self.screen, self.CYAN, (bar_x, bar_y, fill, 10))
 
     def move_traps(self):
         for trap in self.traps:
             trap[0] += trap[2]
             trap[1] += trap[3]
-
-            # Reverse direction if hitting boundaries
             if trap[0] <= 0 or trap[0] >= self.WIDTH - self.cube_size:
                 trap[2] *= -1
             if trap[1] <= 0 or trap[1] >= self.HEIGHT - self.cube_size:
                 trap[3] *= -1
 
-    def check_collision(self, rect1, rect2):
-        return rect1.colliderect(rect2)
+    def check_collision(self, r1, r2):
+        return r1.colliderect(r2)
 
-    def move_towards_player(self, player_x, player_y, enemy_x, enemy_y, speed):
-        if not self.enemy_frozen:
-            dx = player_x - enemy_x
-            dy = player_y - enemy_y
-            distance = math.hypot(dx, dy)
-            if distance == 0:
-                return enemy_x, enemy_y
-            dx /= distance
-            dy /= distance
-            enemy_x += dx * speed
-            enemy_y += dy * speed
-        return enemy_x, enemy_y
+    def move_towards_player(self, px, py, ex, ey, speed):
+        if self.enemy_frozen:
+            return ex, ey
+        dx, dy = px - ex, py - ey
+        distance = math.hypot(dx, dy)
+        if distance == 0:
+            return ex, ey
+        dx, dy = dx / distance, dy / distance
+        return ex + dx * speed, ey + dy * speed
 
     def spawn_power_ups(self):
-        if random.randint(1, 300) <= 1.5:  # 0.33% chance to spawn a power-up
-            power_up_type = random.choice(list(self.power_up_types.keys()))
-            self.power_ups.append([random.randint(0, self.WIDTH - 20), random.randint(0, self.HEIGHT - 20), self.power_up_types[power_up_type], power_up_type])
+        if random.randint(1, 300) <= 1:
+            typ = random.choice(self.power_up_types)
+            self.power_ups.append([random.randint(0, self.WIDTH - 20), random.randint(0, self.HEIGHT - 20), typ, typ])
 
-    def apply_power_up(self, power_up_type):
-        if power_up_type == 'shield':
+    def apply_power_up(self, typ):
+        if typ == 'shield':
             self.player_shield = True
-        elif power_up_type == 'speed_boost':
+        elif typ == 'speed_boost':
             self.player_speed_boost = True
-        elif power_up_type == 'trap_disabler':
+        elif typ == 'trap_disabler':
             self.trap_disabled = True
-        elif power_up_type == 'enemy_freeze':
+        elif typ == 'enemy_freeze':
             self.enemy_frozen = True
         self.power_up_timer = self.power_up_duration
         self.power_up_sound.play()
@@ -175,6 +172,7 @@ class RealmOfFear:
             self.enemy_frozen = False
 
     def run(self):
+        self.show_intro_image() 
         self.background_music.play(-1)  # Play background music
         while True:
             self.screen.blit(self.background_img, (0, 0))  # Draw background
@@ -271,4 +269,11 @@ class RealmOfFear:
             pygame.display.update()
             self.clock.tick(30)
 
-# Initialize Pygame
+# --- Entry Point ---
+if __name__ == "__main__":
+    pygame.init()
+    screen = pygame.display.set_mode((800, 600))
+    pygame.display.set_caption("Realm of Fear")
+    game = RealmOfFear(screen)
+    game.show_intro_image()
+    game.run()

@@ -61,24 +61,47 @@ class RealmOfPortals:
             print(f"{image_path} not found, using fallback circle")
             return None
 
-    def main_menu(self):
-        """Display the main menu."""
-        running = True
-        font = pygame.font.Font(None, 48)
-        while running:
-            self.screen.blit(self.background, (0, 0))
-            title_text = font.render("Whac-A-Mole", True, WHITE)
-            start_text = font.render("Press SPACE to Start", True, WHITE)
-            self.screen.blit(title_text, (WIDTH // 2 - title_text.get_width() // 2, HEIGHT // 3))
-            self.screen.blit(start_text, (WIDTH // 2 - start_text.get_width() // 2, HEIGHT // 2))
+    def show_intro_image(self):
+        """Show the surprise intro image with a fade-in effect."""
+        try:
+            # Load and scale the intro image
+            intro_image = pygame.image.load(r"Game3/Assets/surprisebg.png").convert_alpha()
+            intro_scaled = pygame.transform.scale(intro_image, (WIDTH, HEIGHT))
+            
+            # Create a surface for fade effect
+            fade_surface = pygame.Surface((WIDTH, HEIGHT))
+            fade_surface.fill((0, 0, 0))
+            
+            # Fade in effect
+            for alpha in range(0, 255, 5):
+                self.screen.fill((0, 0, 0))  # Clear the screen with black
+                intro_scaled.set_alpha(alpha)
+                self.screen.blit(intro_scaled, (0, 0))
+                pygame.display.flip()
+                pygame.time.delay(30)
+            
+            # Show the image fully
+            self.screen.blit(intro_scaled, (0, 0))
             pygame.display.flip()
             
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    exit()
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-                    return
+            # Wait for space key press
+            waiting = True
+            while waiting:
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        pygame.quit()
+                        exit()
+                    if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                        waiting = False
+            
+        except Exception as e:
+            print(f"Error loading intro image: {e}")
+            # If image fails to load, just continue after a delay
+            pygame.time.delay(1000)
+
+    def main_menu(self):
+        """Display the main menu (now not needed, intro image takes over)."""
+        pass  # The main menu is skipped after the intro image.
 
     def game(self):
         """Run the main game loop."""
@@ -153,9 +176,6 @@ class RealmOfPortals:
                     })
                     active_moles.remove(mole)
 
-            # Draw Holes
-           
-            
             # Draw Moles and Rats
             for mole in active_moles:
                 if mole.get('is_rat'):
@@ -228,9 +248,9 @@ class RealmOfPortals:
                             json.dump(logs, f, indent=4)
 
                         return True
-
+                    
     def run(self):
         """Main method to run the game."""
-        self.main_menu()  # Show the main menu
-        game_over = self.game()  # Start the game
-        return game_over  
+          # Show the intro image before the game starts
+        game_over = self.game()  # Start the game after the intro image
+        return game_over

@@ -1,0 +1,112 @@
+[
+    {
+        "type": "mole",
+        "spawn_time": 1746601432.2718194,
+        "click_time": 1746601433.0834553,
+        "reaction_time": 0.8116359710693359,
+        "clicked": true,
+        "position": [
+            202,
+            527
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1746601432.7743807,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            488,
+            302
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1746601434.1741917,
+        "click_time": 1746601434.784235,
+        "reaction_time": 0.6100432872772217,
+        "clicked": true,
+        "position": [
+            691,
+            367
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1746601434.2745275,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            488,
+            468
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1746601435.256195,
+        "click_time": 1746601435.9925332,
+        "reaction_time": 0.7363381385803223,
+        "clicked": true,
+        "position": [
+            707,
+            196
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1746601435.786179,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            322,
+            302
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1746601437.3004184,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            654,
+            136
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1746601438.2942924,
+        "click_time": 1746601438.924107,
+        "reaction_time": 0.629814624786377,
+        "clicked": true,
+        "position": [
+            220,
+            185
+        ]
+    },
+    {
+        "type": "rat",
+        "spawn_time": 1746601438.8053896,
+        "click_time": null,
+        "reaction_time": null,
+        "clicked": false,
+        "position": [
+            488,
+            302
+        ]
+    },
+    {
+        "type": "mole",
+        "spawn_time": 1746601439.7399244,
+        "click_time": 1746601440.1137881,
+        "reaction_time": 0.37386369705200195,
+        "clicked": true,
+        "position": [
+            534,
+            352
+        ]
+    }
+]
