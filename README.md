@@ -1,59 +1,82 @@
-# Project Title: Street Fighter Clone Made in Python
+# 🎮 EmoQuest: Exploring Emotions Through Gameplay
 
-## 1. Project Description:
+![Intro](./intro.jpeg)
 
+**EmoQuest** is an immersive behavioral analytics game designed to detect affective patterns through interactive gameplay. Players journey through four uniquely designed emotional realms—**Fear**, **Surprise**, **Pleasure**, and **Rage**—each crafted to trigger, measure, and analyze specific behavioral and emotional responses. 
 
-This project is a Clone of the Street Fighter Game. It has been developed in Python programming language, using the Pygame library.
+Through state-of-the-art tracking systems—ranging from voice and eye tracking to facial emotion recognition—EmoQuest delivers deep insights into expressive patterns, emotional reactivity, and potential behavioral anomalies.
 
+---
 
-## 2. Tech Stack:
+## 👻 Realm of Fear: Defensive Avoidance Detection
 
-- Python 3
-- Pygame
+![Fear Realm](./fear.jpeg)
 
-URL: [https://www.pygame.org/news ](https://www.pygame.org/news)
+In the **Realm of Fear**, players must escape a terrifying witch, navigating through eerie environments powered by chilling audio and unexpected jump scares. 
 
+🧠 **Behavioral Analytics**:
+- **Stimulus:** Fearful music, jump scares
+- **Tracked Metrics:** Heart rate spikes (via simulated input), escape timing, power-up use
+- **Detected Behavior:** Defensive avoidance patterns
 
-## 3. Installing:
+---
 
-1. Clone the git repo
+## 🎉 Realm of Surprise: Startled Reactivity Analysis
 
-```
-https://github.com/russs123/brawler_tut.git
-```
+![Surprise Realm](./surprise.jpeg)
 
-2. Open project folder
+A fast-paced **whack-a-mole** style challenge awaits in the **Realm of Surprise**. Surprises emerge randomly, requiring rapid reaction and decision-making.
 
-3. Explore
+🧠 **Behavioral Analytics**:
+- **Stimulus:** Sudden visual and auditory changes
+- **Tracked Metrics:** Reaction time, accuracy, startled movement patterns
+- **Detected Behavior:** Startle responsiveness and adaptability
 
-4. Open main.py and run
+---
 
-5. Play the game
+## 😊 Realm of Pleasure: Expressive Positivity Assessment
 
-Enjoy 😎
+![Pleasure Realm](./pleasure.jpeg)
 
+The **Realm of Pleasure** can only be conquered with joy—literally. Players must smile to unlock controls using a real-time face and eye detection model.
 
-## 4. Contributing:
+🧠 **Behavioral Analytics**:
+- **Stimulus:** Calming visuals and pleasant audio
+- **Tracked Metrics:** Smile duration and intensity, blink frequency, eye tracking
+- **Detected Behavior:** Expressive positivity, emotional stability
 
-Pull requests are welcome. 
+---
 
-For major changes, please open an issue first to discuss what you would like to change with project owner (Coding With Russ).
+## 🌋 Realm of Rage: Confrontational Reactivity Monitoring
 
+![Rage Realm](./rage.jpeg)
 
-## 5. Screen Recording:
+In the **Realm of Rage**, players fight using only their **voice**. Shouts, commands, and vocal intensity power attacks and defense mechanisms.
 
-https://user-images.githubusercontent.com/15172744/190894691-c52ac22d-b76c-4890-9057-98eed66683a9.mp4
+🧠 **Behavioral Analytics**:
+- **Stimulus:** Aggressive opponents, voice-controlled combat
+- **Tracked Metrics:** Voice pitch, tone, intensity, timing
+- **Detected Behavior:** Confrontational reactivity, stress vocal patterns
 
+---
 
-## 6. Created By:
+## 📊 Comprehensive Behavioral Report
 
-Name: Coding With Russ
+![Game Report](./report.jpeg)
 
-Project Name: Street Fighter Style Fighting Game in Python using Pygame - Complete Tutorial
+After completing all four realms, players receive a detailed report summarizing their behavioral patterns across different emotional states.
 
-Youtube: https://www.youtube.com/watch?v=s5bd9KMSSW4
+📋 **Report Includes**:
+- Affective response profiling
+- Comparative behavioral data
+- Alerts for abnormal patterns
+- Recommendations for further assessment (if needed)
 
-Github: https://github.com/russs123/brawler_tut
+---
 
+## 🚀 Getting Started
 
-
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/your-username/emoquest.git
+   cd emoquest
